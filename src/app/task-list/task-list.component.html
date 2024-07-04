@@ -1,0 +1,14 @@
+<section id="task-list">
+   <header>
+     <p>{{ name }}</p>
+     <menu>
+        <button (click)="addNewTask()">Add Task</button>
+     </menu>
+   </header>
+   <app-task-creator *ngIf = "taskCreatorOpen" (close)="onTaskAddingClosing()" (submittedTask)="onTaskCreated($event)" />
+   <ul>
+      <li>
+         <app-task *ngFor = "let task of selectedUserTasks" [task]="task" (complete)="onCompleteTask($event)"/>
+      </li>
+   </ul>
+</section>
